@@ -12,7 +12,6 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <style>
-        /* ---- PREMIUM CONFIGURATION ---- */
         :root {
             --primary: #00C853;       
             --primary-dark: #009624;
@@ -24,8 +23,7 @@
             --shadow: 0 20px 60px rgba(0, 200, 83, 0.08);
         }
 
-        /* RESET & BASE */
-        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; cursor: none; }
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         
         html, body { overflow-x: hidden; width: 100%; }
 
@@ -34,20 +32,6 @@
             background-color: var(--white);
             color: var(--dark);
             line-height: 1.7;
-        }
-
-        /* ---- CUSTOM CURSOR ---- */
-        .cursor-dot, .cursor-outline {
-            position: fixed; top: 0; left: 0; transform: translate(-50%, -50%);
-            border-radius: 50%; z-index: 9999; pointer-events: none;
-        }
-        .cursor-dot { width: 8px; height: 8px; background-color: var(--primary); }
-        .cursor-outline {
-            width: 40px; height: 40px; border: 1px solid var(--primary);
-            transition: width 0.2s, height 0.2s, background-color 0.2s;
-        }
-        body.hovering .cursor-outline {
-            width: 60px; height: 60px; background-color: rgba(0, 200, 83, 0.1); border-color: transparent;
         }
 
         /* ---- SCROLL TO TOP ---- */
@@ -82,14 +66,12 @@
         .nav-links a { text-decoration: none; color: #444; font-weight: 700; font-size: 15px; transition: 0.3s; }
         .nav-links a:hover, .nav-links a.active { color: var(--primary); }
         
-        /* LAUNCH WEB AI BUTTON */
         .btn-launch {
             background: linear-gradient(135deg, #00C853 0%, #009624 100%); color: white;
             padding: 12px 30px; border-radius: 50px; text-decoration: none; font-weight: 800; font-size: 14px;
             box-shadow: 0 5px 15px rgba(0,200,83,0.3); display: flex; align-items: center; gap: 8px; transition: 0.3s; white-space: nowrap;
         }
         .btn-launch:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(0,200,83,0.5); }
-
         .menu-toggle { display: none; font-size: 26px; cursor: pointer; color: var(--dark); margin-left: 15px; }
 
         /* ---- HERO SECTION ---- */
@@ -102,16 +84,14 @@
         .feat-hero h1 span { color: var(--primary); }
         .feat-hero p { font-size: 1.3rem; color: #666; max-width: 700px; margin: 0 auto 40px; }
 
-        .hero-btns { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
-        
         .btn-ai {
             background: #0a0a0a; color: white; padding: 15px 40px; border-radius: 50px; 
             text-decoration: none; font-weight: 800; transition: 0.3s; font-size: 16px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2); display: flex; align-items: center; gap: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2); display: inline-flex; align-items: center; gap: 10px;
         }
         .btn-ai:hover { transform: translateY(-3px); background: var(--primary); }
 
-        /* ---- BENTO GRID (Main Tools) ---- */
+        /* ---- BENTO GRID ---- */
         .bento-section { padding: 50px 0 100px; background: #fcfcfc; }
         .bento-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
 
@@ -130,7 +110,6 @@
         .b-card h3 { font-size: 24px; font-weight: 800; margin-bottom: 15px; }
         .b-card p { color: #666; font-size: 1rem; line-height: 1.6; }
         
-        /* Grid Spans */
         .span-2 { grid-column: span 2; background: linear-gradient(135deg, #ffffff 0%, #f1f8e9 100%); }
         .span-full { 
             grid-column: span 3; background: #0a0a0a; color: white; 
@@ -142,47 +121,26 @@
 
         /* ---- DEEP DIVE SECTION (Tech) ---- */
         .tech-section { padding: 100px 0; background: #050505; color: white; position: relative; overflow: hidden; }
-        .tech-section::before {
-            content: ''; position: absolute; top: -20%; left: -10%; width: 500px; height: 500px;
-            background: radial-gradient(circle, rgba(0,200,83,0.1) 0%, transparent 70%); pointer-events: none;
-        }
-
         .tech-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-        
         .tech-content h2 { font-size: 3rem; font-weight: 900; margin-bottom: 20px; }
         .tech-content p { color: #888; font-size: 1.2rem; margin-bottom: 40px; }
-        
         .tech-list { list-style: none; padding: 0; }
         .tech-list li { margin-bottom: 25px; display: flex; align-items: flex-start; gap: 20px; }
-        .tech-check { 
-            width: 30px; height: 30px; background: var(--primary); border-radius: 50%; 
-            display: flex; align-items: center; justify-content: center; font-size: 14px; color: white; flex-shrink: 0; 
-        }
+        .tech-check { width: 30px; height: 30px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; color: white; flex-shrink: 0; }
         .tech-text h4 { font-size: 20px; font-weight: 700; margin-bottom: 5px; }
         .tech-text p { font-size: 15px; color: #777; margin: 0; }
 
-        .tech-visual {
-            background: #111; padding: 40px; border-radius: 40px; border: 1px solid #222;
-            position: relative; box-shadow: 0 40px 80px rgba(0,0,0,0.5);
-        }
+        .tech-visual { background: #111; padding: 40px; border-radius: 40px; border: 1px solid #222; box-shadow: 0 40px 80px rgba(0,0,0,0.5); }
         .code-snippet { font-family: 'Courier New', monospace; color: var(--primary); font-size: 14px; line-height: 1.8; }
 
         /* ---- USE CASES SECTION ---- */
         .use-case-section { padding: 100px 0; background: white; }
         .uc-header { text-align: center; margin-bottom: 60px; }
         .uc-header h2 { font-size: 2.8rem; font-weight: 900; }
-        
         .uc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
-        .uc-card { 
-            text-align: center; padding: 40px 30px; border-radius: 25px; background: #fff;
-            border: 1px solid #eee; transition: 0.3s;
-        }
+        .uc-card { text-align: center; padding: 40px 30px; border-radius: 25px; background: #fff; border: 1px solid #eee; transition: 0.3s; }
         .uc-card:hover { transform: translateY(-10px); box-shadow: var(--shadow); border-color: var(--primary); }
-        .uc-icon { 
-            width: 80px; height: 80px; margin: 0 auto 25px; border-radius: 50%; 
-            background: #f9f9f9; display: flex; align-items: center; justify-content: center; 
-            font-size: 32px; color: #333; transition: 0.3s;
-        }
+        .uc-icon { width: 80px; height: 80px; margin: 0 auto 25px; border-radius: 50%; background: #f9f9f9; display: flex; align-items: center; justify-content: center; font-size: 32px; color: #333; transition: 0.3s; }
         .uc-card:hover .uc-icon { background: var(--primary); color: white; }
         .uc-card h3 { font-size: 22px; font-weight: 800; margin-bottom: 15px; }
         .uc-card p { color: #666; font-size: 15px; }
@@ -199,30 +157,25 @@
         .footer-col a:hover { color: var(--primary); padding-left: 5px; }
         .copyright { text-align: center; border-top: 1px solid #222; margin-top: 60px; padding-top: 30px; color: #555; font-size: 13px; }
 
-        /* FIXED MOBILE MENU (Opacity & Visibility Fix) */
+        /* MOBILE MENU */
         .mobile-menu {
             position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: white;
             z-index: 2000; display: flex; flex-direction: column; justify-content: center; align-items: center;
-            transform: translateY(-100%); transition: 0.4s ease-in-out;
-            opacity: 0; visibility: hidden;
+            transform: translateY(-100%); transition: 0.4s ease-in-out; opacity: 0; visibility: hidden;
         }
         .mobile-menu.active { transform: translateY(0); opacity: 1; visibility: visible; }
         .mobile-menu a { font-size: 20px; font-weight: 800; color: #111; margin: 15px 0; text-decoration: none; }
         .close-menu { position: absolute; top: 25px; right: 25px; font-size: 30px; cursor: pointer; }
 
-        /* ---- RESPONSIVE ---- */
         @media(max-width: 900px) {
             header { top: 10px; padding: 0 15px; }
             .nav-capsule { border-radius: 15px; padding: 15px 20px; width: 100%; justify-content: space-between; }
             .nav-links, .btn-launch { display: none; }
             .menu-toggle { display: block; }
-            
             .feat-hero h1 { font-size: 3rem; }
-            
             .bento-grid, .tech-grid, .uc-grid { grid-template-columns: 1fr; gap: 40px; }
             .span-2, .span-full { grid-column: span 1; }
             .span-full { flex-direction: column; text-align: center; }
-            
             .footer-grid { grid-template-columns: 1fr; text-align: center; gap: 40px; }
             .footer-brand { display: flex; flex-direction: column; align-items: center; }
         }
@@ -230,18 +183,15 @@
 </head>
 <body>
 
-    <div class="cursor-dot"></div>
-    <div class="cursor-outline"></div>
-
     <div class="mobile-menu" id="mobileMenu">
         <div class="close-menu" onclick="toggleMenu()"><i class="fas fa-times"></i></div>
-        <a href="index.html" onclick="toggleMenu()">Home</a>
-        <a href="features.html" onclick="toggleMenu()">Features</a>
-        <a href="dictionary.html" onclick="toggleMenu()">Dictionary</a>
-        <a href="rights.html" onclick="toggleMenu()">Know Rights</a>
-        <a href="contact.html" onclick="toggleMenu()">Contact</a>
-        <a href="app.html" style="color:var(--primary);">Mobile App</a>
-        <a href="https://ai.jnvazamgarh.in" style="color:var(--primary);">AI Chat</a>
+        <a href="index.html">Home</a>
+        <a href="features.html" style="color:var(--primary);">Features</a>
+        <a href="dictionary.html">Dictionary</a>
+        <a href="rights.html">Know Rights</a>
+        <a href="contact.html">Contact</a>
+        <a href="app.html">Mobile App</a>
+        <a href="https://ai.jnvazamgarh.in" style="margin-top:20px; background:black; color:white; padding:10px 25px; border-radius:50px;">Launch Web AI</a>
     </div>
 
     <header>
@@ -249,7 +199,6 @@
             <a href="index.html" class="logo">
                 <i class="fas fa-scale-balanced"></i> NYAYA<span>SETU.</span>
             </a>
-            
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="features.html" class="active">Features</a></li>
@@ -258,7 +207,6 @@
                 <li><a href="contact.html">Contact</a></li>
                 <li><a href="app.html" style="color:var(--primary);">Mobile App</a></li>
             </ul>
-
             <div style="display:flex; align-items:center;">
                 <a href="https://ai.jnvazamgarh.in" target="_blank" class="btn-launch">
                     <i class="fas fa-rocket"></i> Launch Web AI
@@ -269,60 +217,50 @@
     </header>
 
     <section class="feat-hero">
-        <div class="container" data-aos="zoom-in">
+        <div class="container">
             <h1>Unlocking Legal <br> <span>Superpowers.</span></h1>
             <p>A comprehensive suite of AI tools engineered to simplify, explain, and democratize the Indian Legal System for everyone.</p>
-            
-            <div class="hero-btns" style="margin-top: 30px;">
-                <a href="https://ai.jnvazamgarh.in" target="_blank" class="btn-ai">
-                    <i class="fas fa-robot"></i> Start AI Chat
-                </a>
-            </div>
+            <a href="https://ai.jnvazamgarh.in" target="_blank" class="btn-ai" style="display:inline-flex; margin-top: 10px;">
+                <i class="fas fa-robot"></i> Start AI Chat
+            </a>
         </div>
     </section>
 
     <section class="bento-section">
         <div class="container">
             <div class="bento-grid">
-                
-                <div class="b-card span-2" data-aos="fade-up">
+                <div class="b-card span-2">
                     <div class="b-icon"><i class="fas fa-search-location"></i></div>
                     <h3>Contextual AI Search</h3>
-                    <p>Most apps search for keywords. Nyaya-Setu understands <strong>Context</strong>. Describe a theft, a property dispute, or a family issue in simple stories, and our AI pinpoints the exact IPC sections, fines, and jail terms relevant to you.</p>
+                    <p>Describe a theft, a property dispute, or a family issue in simple stories, and our AI pinpoints the exact IPC sections, fines, and jail terms relevant to you.</p>
                 </div>
-
-                <div class="b-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="b-card">
                     <div class="b-icon"><i class="fas fa-microphone-alt"></i></div>
                     <h3>Voice Command</h3>
                     <p>Speak in Hindi or English. The app listens, processes, and talks back.</p>
                 </div>
-
-                <div class="b-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="b-card">
                     <div class="b-icon"><i class="fas fa-file-contract"></i></div>
                     <h3>Doc Drafter</h3>
                     <p>Create Rent Agreements & Affidavits in 30 seconds.</p>
                 </div>
-
-                <div class="b-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="b-card">
                     <div class="b-icon"><i class="fas fa-shield-virus"></i></div>
                     <h3>Privacy Shield</h3>
                     <p>Your data never leaves your device unencrypted. Military-grade security.</p>
                 </div>
-
-                <div class="b-card" data-aos="fade-up" data-aos-delay="400">
+                <div class="b-card">
                     <div class="b-icon"><i class="fas fa-language"></i></div>
                     <h3>Bilingual Support</h3>
                     <p>One-tap switch between English and Hindi for all laws.</p>
                 </div>
-
-                <div class="b-card span-full" data-aos="fade-up">
+                <div class="b-card span-full">
                     <div class="b-icon"><i class="fas fa-gavel"></i></div>
                     <div>
                         <h3>Case Precedents Database</h3>
-                        <p>Access a massive library of simplified Supreme Court judgments. Understand how previous cases were solved to build a stronger argument for your own situation.</p>
+                        <p>Access a massive library of simplified Supreme Court judgments. Understand how previous cases were solved to build a stronger argument.</p>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
@@ -330,17 +268,15 @@
     <section class="tech-section">
         <div class="container">
             <div class="tech-grid">
-                
-                <div class="tech-content" data-aos="fade-right">
+                <div class="tech-content">
                     <h2>Beneath the Surface</h2>
                     <p>Nyaya-Setu is powered by a custom-trained Neural Network specifically designed for the Indian Constitution.</p>
-                    
                     <ul class="tech-list">
                         <li>
                             <div class="tech-check"><i class="fas fa-check"></i></div>
                             <div class="tech-text">
                                 <h4>Natural Language Processing (NLP)</h4>
-                                <p>Converts 'My landlord is harassing me' into 'Section 441 IPC (Criminal Trespass)'.</p>
+                                <p>Converts 'My landlord is harassing me' into 'Section 441 IPC'.</p>
                             </div>
                         </li>
                         <li>
@@ -350,53 +286,40 @@
                                 <p>Automatically updates with new amendments and Supreme Court rulings.</p>
                             </div>
                         </li>
-                        <li>
-                            <div class="tech-check"><i class="fas fa-check"></i></div>
-                            <div class="tech-text">
-                                <h4>Local Processing</h4>
-                                <p>Core logic runs on-device for speed and absolute privacy.</p>
-                            </div>
-                        </li>
                     </ul>
                 </div>
-
-                <div class="tech-visual" data-aos="fade-left">
+                <div class="tech-visual">
                     <div class="code-snippet">
                         > Initiating Neural Core...<br>
                         > Loading IPC_v2026.db... [OK]<br>
-                        > Loading CrPC_Modules... [OK]<br>
                         > Verifying Encryption... [SECURE]<br>
                         ><br>
                         > User Query: "Neighbor blocked my way"<br>
-                        > Analysis: Wrongful Restraint<br>
                         > Output: Section 339 IPC detected.<br>
                         > Generating Simplified Advice...
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
 
     <section class="use-case-section">
         <div class="container">
-            <div class="uc-header" data-aos="fade-up">
+            <div class="uc-header">
                 <h2>Real World <span>Solutions</span></h2>
-                <p>Designed for every scenario life throws at you.</p>
             </div>
-            
             <div class="uc-grid">
-                <div class="uc-card" data-aos="fade-up">
+                <div class="uc-card">
                     <div class="uc-icon"><i class="fas fa-home"></i></div>
                     <h3>Property Disputes</h3>
                     <p>Resolve tenant issues, land grabbing complaints, and property registration queries.</p>
                 </div>
-                <div class="uc-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="uc-card">
                     <div class="uc-icon"><i class="fas fa-user-injured"></i></div>
                     <h3>Consumer Rights</h3>
                     <p>File complaints against faulty products, service deficiencies, or e-commerce frauds.</p>
                 </div>
-                <div class="uc-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="uc-card">
                     <div class="uc-icon"><i class="fas fa-car-crash"></i></div>
                     <h3>Traffic & Challans</h3>
                     <p>Know the exact fines, challenge wrongful challans, and understand motor vehicle laws.</p>
@@ -433,32 +356,23 @@
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({ duration: 800, once: true });
-
-        function toggleMenu() {
-            const menu = document.getElementById('mobileMenu');
-            menu.classList.toggle('active');
+        // AOS initialization completely fail-safe without breaking layout
+        try {
+            AOS.init({ duration: 800, once: true });
+        } catch(e) {
+            console.log("AOS failed to init, structural fallback active.");
         }
 
-        const cursorDot = document.querySelector('.cursor-dot');
-        const cursorOutline = document.querySelector('.cursor-outline');
-        window.addEventListener('mousemove', function(e) {
-            const posX = e.clientX; const posY = e.clientY;
-            cursorDot.style.left = `${posX}px`; cursorDot.style.top = `${posY}px`;
-            cursorOutline.animate({ left: `${posX}px`, top: `${posY}px` }, { duration: 500, fill: "forwards" });
-        });
+        function toggleMenu() {
+            document.getElementById('mobileMenu').classList.toggle('active');
+        }
 
-        const hoverElements = document.querySelectorAll('a, button, .b-card, .uc-card');
-        hoverElements.forEach(el => {
-            el.addEventListener('mouseenter', () => document.body.classList.add('hovering'));
-            el.addEventListener('mouseleave', () => document.body.classList.remove('hovering'));
-        });
-
-        const scrollTopBtn = document.querySelector('.scroll-top');
         window.addEventListener('scroll', () => {
+            const scrollTopBtn = document.querySelector('.scroll-top');
             if (window.scrollY > 300) scrollTopBtn.classList.add('active');
             else scrollTopBtn.classList.remove('active');
         });
+
         function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
     </script>
 
